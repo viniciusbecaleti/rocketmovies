@@ -4,8 +4,11 @@ const { v4: uuid } = require("uuid")
 
 class MoviesController {
   async index(req, res) {
+    console.log(req.user)
+    const { id: user_id } = req.user
+
     await knex.transaction(async trx => {
-      const movies = await trx("movies").select("*").orderBy("created_at", "desc")
+      const movies = await trx("movies").select("*").where({ user_id }).orderBy("created_at", "desc")
       const tags = await trx("tags").select("*").orderBy("name", "asc")
 
       const splitedMovies = movies.map(movie => {
@@ -20,10 +23,11 @@ class MoviesController {
   }
 
   async show(req, res) {
+    const { id: user_id } = req.user
     const { movie_id } = req.params
 
     await knex.transaction(async trx => {
-      const movie = await trx("movies").select("*").where({ id: movie_id }).first()
+      const movie = await trx("movies").select("*").where({ id: movie_id, user_id }).first()
 
       if (!movie) {
         throw new AppError("Movie not found")
@@ -39,7 +43,7 @@ class MoviesController {
   }
 
   async create(req, res) {
-    const { user_id } = req.params
+    const { id: user_id } = req.user
     const { title, description, rating, tags } = req.body
 
     const user = await knex("users").select("*").where({ id: user_id }).first()
@@ -87,10 +91,11 @@ class MoviesController {
   }
 
   async update(req, res) {
+    const { id: user_id } = req.user
     const { movie_id } = req.params
     const { title, description, rating, tags } = req.body
 
-    const movie = await knex("movies").select("*").where({ id: movie_id }).first()
+    const movie = await knex("movies").select("*").where({ id: movie_id, user_id }).first()
 
     if (!movie) {
       throw new AppError("Movie not found")
@@ -133,9 +138,10 @@ class MoviesController {
   }
 
   async delete(req, res) {
+    const { id: user_id } = req.user
     const { movie_id } = req.params
 
-    const movie = await knex("movies").select("*").where({ id: movie_id }).first()
+    const movie = await knex("movies").select("*").where({ id: movie_id, user_id }).first()
 
     if (!movie) {
       throw new AppError("Movie not found")

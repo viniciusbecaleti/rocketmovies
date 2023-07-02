@@ -5,16 +5,20 @@ const knex = require("../database/knex")
 const { v4: uuidv4 } = require("uuid")
 
 class UsersController {
-  async index(req, res) {
-    const users = await knex("users").select("*").orderBy("created_at", "desc")
-
-    return res.json(users)
-  }
-
   async show(req, res) {
-    const { user_id } = req.params
+    const { id: user_id } = req.user
 
-    const user = await knex("users").select("*").where({ id: user_id }).first()
+    const user = await knex("users")
+      .select([
+        "id",
+        "name",
+        "email",
+        "avatar",
+        "created_at",
+        "updated_at"
+      ])
+      .where({ id: user_id })
+      .first()
 
     if (!user) {
       throw new AppError("User not found")
@@ -67,7 +71,7 @@ class UsersController {
   }
 
   async update(req, res) {
-    const { user_id } = req.params
+    const { id: user_id } = req.user
 
     const user = await knex("users").select("*").where({ id: user_id }).first()
 
@@ -123,11 +127,7 @@ class UsersController {
   }
 
   async delete(req, res) {
-    const { user_id } = req.params
-
-    if (!user_id) {
-      throw new AppError("Please enter a user_id")
-    }
+    const { id: user_id } = req.user
 
     const user = await knex("users").select("*").where({ id: user_id }).first()
 
