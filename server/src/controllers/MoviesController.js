@@ -4,7 +4,6 @@ const { v4: uuid } = require("uuid")
 
 class MoviesController {
   async index(req, res) {
-    console.log(req.user)
     const { id: user_id } = req.user
 
     await knex.transaction(async trx => {
@@ -64,6 +63,10 @@ class MoviesController {
       throw new AppError("Rating is required")
     }
 
+    if (rating < 1 || rating > 5) {
+      throw new AppError("Rating needs to be between 1 and 5")
+    }
+
     if (!tags) {
       throw new AppError("Tags is required")
     }
@@ -110,6 +113,10 @@ class MoviesController {
     }
 
     if (rating) {
+      if (rating < 1 || rating > 5) {
+        throw new AppError("Rating needs to be between 1 and 5")
+      }
+
       movie.rating = rating
     }
 
