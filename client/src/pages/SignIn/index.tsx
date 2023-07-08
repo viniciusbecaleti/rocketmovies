@@ -4,6 +4,7 @@ import { Background, Form, Login, SignInContainer } from './styles'
 
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
+import { Link } from '../../components/Link'
 
 export function SignIn() {
   return (
@@ -19,6 +20,8 @@ export function SignIn() {
           <Input icon={FiLock} type="password" placeholder="Senha" />
           <Button type="submit">Entrar</Button>
         </Form>
+
+        <Link to="/register">Criar conta</Link>
       </Login>
 
       <Background />

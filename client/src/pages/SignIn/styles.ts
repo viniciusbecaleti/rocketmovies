@@ -5,7 +5,7 @@ import background from '../../assets/background.jpg'
 
 export const SignInContainer = styled.div`
   max-width: 1920rem;
-  height: 100vh;
+  min-height: 100vh;
   max-height: 1080rem;
   margin: 0 auto;
 
@@ -20,7 +20,7 @@ export const Login = styled.div`
   padding-inline: 134rem;
 
   > h1 {
-    font-size: 48rem;
+    font-size: clamp(24rem, 10vw, 48rem);
     color: ${({ theme }) => theme['pink-500']};
   }
 
@@ -34,10 +34,17 @@ export const Login = styled.div`
     font-weight: 500;
   }
 
+  > a {
+    align-self: center;
+    margin-top: 42rem;
+  }
+
   @media (max-width: 1024px) {
     flex: 1;
     padding-inline: 16rem;
+    padding-block: 16px 32rem;
     align-items: center;
+    text-align: center;
 
     background: ${({ theme }) => `
       linear-gradient(
