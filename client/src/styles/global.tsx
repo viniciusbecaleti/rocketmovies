@@ -35,6 +35,10 @@ export const GlobalStyle = createGlobalStyle`
     cursor: not-allowed;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   @media (min-height: 1080px) {
     body {
       height: 100vh;
