@@ -13,10 +13,16 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   justify-content: center;
   gap: 8rem;
 
+  padding-inline: 16rem;
+
   font-weight: 500;
-  color: ${({ theme }) => theme['gray-600']};
+  color: ${({ theme }) => theme['gray-800']};
 
   border: none;
   border-radius: 10px;
   background-color: ${({ theme }) => theme['pink-500']};
+
+  svg {
+    font-size: 20rem;
+  }
 `
