@@ -12,7 +12,7 @@ export const HomeContainer = styled.div`
   overflow: hidden;
 
   @media (max-width: 480px) {
-    grid-template-rows: 80rem calc(100vh - 80rem);
+    grid-template-rows: 96rem calc(100vh - 96rem);
   }
 `
 
@@ -41,7 +41,7 @@ export const HomeMain = styled.main`
   }
 
   @media (max-width: 480px) {
-    grid-template-rows: 80rem calc(100% - 80rem);
+    grid-template-rows: 96rem calc(100% - 96rem);
   }
 `
 

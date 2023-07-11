@@ -13,7 +13,7 @@ export const InputContainer = styled.div`
   background: ${({ theme }) => theme['gray-700']};
 
   > svg {
-    font-size: 20rem;
+    font-size: 24rem;
     color: ${({ theme }) => theme['gray-400']};
   }
 

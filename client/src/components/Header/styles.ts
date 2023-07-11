@@ -40,12 +40,13 @@ export const Profile = styled.div`
   gap: 8rem;
 
   text-align: right;
+  color: ${({ theme }) => theme['gray-100']};
 
   a {
     color: ${({ theme }) => theme['gray-400']};
   }
 
-  > img {
+  img {
     width: 64rem;
     height: 64rem;
     border-radius: 50%;

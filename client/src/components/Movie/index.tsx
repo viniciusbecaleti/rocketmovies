@@ -7,7 +7,7 @@ import { Rating } from '../Rating'
 
 export function Movie() {
   return (
-    <Link to="/">
+    <Link to="/details">
       <MovieContainer>
         <h2>Interestellar</h2>
 

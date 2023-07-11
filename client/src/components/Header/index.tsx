@@ -11,10 +11,12 @@ export function Header() {
         <Profile>
           <div>
             <strong>Vinicius</strong>
-            <Link to="/">sair</Link>
+            <Link to="/logout">sair</Link>
           </div>
 
-          <img src="https://github.com/viniciusbecaleti.png" alt="" />
+          <Link to="/profile">
+            <img src="https://github.com/viniciusbecaleti.png" alt="" />
+          </Link>
         </Profile>
       </HeaderContent>
     </HeaderContainer>

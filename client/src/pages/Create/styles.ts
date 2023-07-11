@@ -10,7 +10,7 @@ export const CreateContainer = styled.div`
   overflow: hidden;
 
   @media (max-width: 480px) {
-    grid-template-rows: 80rem calc(100vh - 80rem);
+    grid-template-rows: 96rem calc(100vh - 96rem);
   }
 `
 
