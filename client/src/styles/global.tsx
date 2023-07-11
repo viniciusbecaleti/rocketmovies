@@ -11,6 +11,29 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
   }
 
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: ${({ theme }) => theme['pink-500']} ${({ theme }) =>
+  theme['gray-900']};
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme['gray-900']};
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme['pink-500']};
+    border-radius: 8px;
+    border: 4px solid transparent;
+  }
+
   html {
     font-size: 6.25%;
   }
@@ -45,6 +68,12 @@ export const GlobalStyle = createGlobalStyle`
       height: 100vh;
       display: grid;
       align-items: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    html {
+      font-size: 5.46875%;
     }
   }
 `

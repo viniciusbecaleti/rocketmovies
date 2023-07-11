@@ -5,8 +5,6 @@ export const RatingContainer = styled.div`
   align-items: center;
   gap: 6rem;
 
-  margin-block: 8rem 16rem;
-
   svg {
     color: ${({ theme }) => theme['pink-500']};
   }

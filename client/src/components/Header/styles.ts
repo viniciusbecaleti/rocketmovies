@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const HeaderContainer = styled.header`
   grid-area: header;
 
-  position: fixed;
+  display: flex;
   width: 100%;
 
   padding-inline: 16rem;
@@ -13,8 +13,9 @@ export const HeaderContainer = styled.header`
 `
 
 export const HeaderContent = styled.div`
+  flex: 1;
+
   max-width: 1120rem;
-  height: 116rem;
   margin-inline: auto;
 
   display: flex;
@@ -23,7 +24,7 @@ export const HeaderContent = styled.div`
   gap: 32rem;
 
   @media (max-width: 480px) {
-    height: 86rem;
+    gap: 16rem;
   }
 `
 

@@ -11,8 +11,9 @@ export const MovieContainer = styled.article`
     color: ${({ theme }) => theme['gray-100']};
   }
 
-  > div {
+  > div:nth-child(2) {
     font-size: 12rem;
+    margin-block: 8rem 16rem;
   }
 
   p {

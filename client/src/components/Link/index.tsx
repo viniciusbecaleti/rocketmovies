@@ -7,6 +7,6 @@ interface LinkType extends LinkProps {
   children: ReactNode
 }
 
-export function Link({ to, children }: LinkType) {
-  return <LinkContainer to={to}>{children}</LinkContainer>
+export function Link({ children, ...rest }: LinkType) {
+  return <LinkContainer {...rest}>{children}</LinkContainer>
 }
